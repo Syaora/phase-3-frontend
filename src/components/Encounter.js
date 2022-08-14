@@ -23,6 +23,10 @@ function Encounters({ trainer }) {
     }
   }, [])
 
+  function backButton(){
+    navigate("/roster")
+  }
+
   function getRandomNumber() {
     return Math.floor(Math.random() * (500 - 1) + 1)
   }
@@ -63,6 +67,7 @@ function Encounters({ trainer }) {
 
   return (
     <Box>
+      <Button sx={{ margin: "40px" }} variant="contained" onClick={backButton}>Back</Button>
       <Container maxWidth="sm" sx={{ py: 8 }}>
         <Card
           sx={{ height: 400, display: 'flex', flexDirection: 'column' }}
