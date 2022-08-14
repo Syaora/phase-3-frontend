@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
+import { CardMedia } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 function Roster({ trainer }) {
@@ -38,9 +39,9 @@ function Roster({ trainer }) {
     setPokemons(newPokemons)
   }
 
-  function renamePokemon(pokemon){
+  // function renamePokemon(pokemon){
 
-  }
+  // }
 
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
@@ -60,6 +61,15 @@ function Roster({ trainer }) {
             <Card
               sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} key={pokemon.id}
             >
+              <CardMedia 
+                component="img"
+                height="300"
+                sx={{
+                  padding: "1em 1em 0 1em",
+                  objectFit: "contain"
+                }}
+                image={pokemon.url}
+              />
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="h2">
                   {pokemon.name}
@@ -70,7 +80,7 @@ function Roster({ trainer }) {
               </CardContent>
               <CardActions>
                 <Button onClick={() => releasePokemon(pokemon.id)} size="small">Release</Button>
-                <Button onClick={() => renamePokemon(pokemon.id)} size="small">Rename</Button>
+                {/* <Button onClick={() => renamePokemon(pokemon.id)} size="small">Rename</Button> */}
               </CardActions>
             </Card>
           </Grid>

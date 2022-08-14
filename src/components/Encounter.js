@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Encounters({ trainer }) {
   const [randomPokemon, setRandomPokemon] = useState([])
+  const [caught, setCaught] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -31,6 +32,7 @@ function Encounters({ trainer }) {
   }
 
   function getNewPokemon(id) {
+    setCaught(false)
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then(res => res.json())
       .then(data => onRandomPokemon({
@@ -40,6 +42,7 @@ function Encounters({ trainer }) {
   }
 
   function catchPokemon() {
+    setCaught(true)
     fetch("http://localhost:9292/pokemons", {
       method: "POST",
       headers: {
@@ -48,6 +51,7 @@ function Encounters({ trainer }) {
       body: JSON.stringify({
         name: randomPokemon.name,
         species: randomPokemon.name,
+        url: randomPokemon.url,
         trainer_id: trainer
       })
     })
@@ -85,7 +89,7 @@ function Encounters({ trainer }) {
           justifyContent="center"
         >
           <Button variant="contained" onClick={() => getNewPokemon(getRandomNumber())}>New Pokemon</Button>
-          <Button variant="contained" onClick={catchPokemon}>Catch</Button>
+          { caught == false ? <Button variant="contained" onClick={catchPokemon}>Catch</Button> : null }
         </Stack>
       </Container>
     </Box>
