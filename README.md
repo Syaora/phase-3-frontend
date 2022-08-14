@@ -1,3 +1,17 @@
+# Catch that pokemon!
+This a React application that interacts with a Sinatra backend that uses Active Records.
+
+### Use Cases
+- As a user, I want to create a new Trainer
+- As a user, I want to select an existing Trainer
+- As a user, I want to see my current pokemons
+- As a user, I want to rename my pokemon
+- As a user, I want to catch more pokemon
+- As a user, I want to release a pokemon
+- As a user, I want to return to the homepage by click the "Catch that Pokemon" on the navbar
+
+######
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
