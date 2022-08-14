@@ -35,10 +35,14 @@ function Encounters({ trainer }) {
     setCaught(false)
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then(res => res.json())
-      .then(data => onRandomPokemon({
-        name: data.name,
+      .then(data => {
+        let tempName = data.name
+        let capitalizeName = tempName.charAt(0).toUpperCase() + tempName.slice(1)
+        onRandomPokemon({
+        name: capitalizeName,
         url: data.sprites.other.dream_world.front_default
-      }))
+      })
+    })
   }
 
   function catchPokemon() {
@@ -51,8 +55,8 @@ function Encounters({ trainer }) {
       body: JSON.stringify({
         name: randomPokemon.name,
         species: randomPokemon.name,
-        url: randomPokemon.url,
-        trainer_id: trainer
+        trainer_id: trainer,
+        url: randomPokemon.url
       })
     })
   }

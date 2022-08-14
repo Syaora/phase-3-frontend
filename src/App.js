@@ -4,7 +4,7 @@ import Encounter from "./components/Encounter"
 import Profile from "./components/Profile"
 import Roster from "./components/Roster"
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState } from "react"
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -21,16 +21,16 @@ function App() {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Catch that Pokemon!
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </Box>
       <BrowserRouter>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="static">
+            <Toolbar>
+              <Typography noWrap component={Link} to="/" variant="h6" sx={{ textDecoration: "none", boxShadow: "none" }}>
+                Catch that Pokemon!
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Box>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/create" element={<Create />} />
