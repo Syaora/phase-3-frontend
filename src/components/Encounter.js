@@ -7,13 +7,19 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
+import { useNavigate } from 'react-router-dom';
 
 function Encounters({ trainer }) {
   const [randomPokemon, setRandomPokemon] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
-    let id = getRandomNumber()
-    getNewPokemon(id)
+    if (trainer){
+      let id = getRandomNumber()
+      getNewPokemon(id)
+    } else {
+      navigate("/")
+    }
   }, [])
 
   function getRandomNumber() {

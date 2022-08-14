@@ -13,9 +13,13 @@ function Roster({ trainer }) {
   const navigate = useNavigate()
 
   useEffect(() => {
+    if (trainer){
     fetch(`http://localhost:9292/trainers/${trainer}`)
       .then((res) => res.json())
       .then((res) => onPokemons(res.pokemons))
+    } else {
+      navigate("/")
+    }
   }, [])
 
   function onPokemons(newPokemons) {
@@ -35,7 +39,7 @@ function Roster({ trainer }) {
   }
 
   function renamePokemon(pokemon){
-    
+
   }
 
   return (
