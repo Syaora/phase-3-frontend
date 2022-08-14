@@ -5,7 +5,7 @@ import Profile from "./components/Profile"
 import Roster from "./components/Roster"
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
